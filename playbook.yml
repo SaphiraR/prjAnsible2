@@ -1,0 +1,8 @@
+---
+- hosts: ci-server
+  roles:
+    - jenkins-server
+
+- hosts: ci-servers
+  roles:
+    - tomee-server

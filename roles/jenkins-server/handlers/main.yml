@@ -1,0 +1,8 @@
+- name: déplacer l'appli web ROOT par défaut
+  command: creates="{{tomcat_dir}}/webapps/doc" mv {{tomcat_dir}}/webapps/ROOT {{tomcat_dir}}/webapps/doc
+
+- name: relancer Tomcat
+  service: name=tomcat8 state=restarted
+
+- name: maven clean package
+  command: mvn -f /srv/projet/ clean package cargo:redeploy
